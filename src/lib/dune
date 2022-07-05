@@ -1,0 +1,3 @@
+(library
+ (name macos_power)
+ (libraries power_c))

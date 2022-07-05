@@ -1,0 +1,24 @@
+(library
+ (name power_c)
+ ; (public_name variorum.c)
+ ; (foreign_archives variorum)
+ (libraries cf)
+ (flags
+  (:standard -w -9-27))
+ (ctypes
+  (external_library_name power)
+  (build_flags_resolver
+   (vendored
+    (c_flags :standard -I src/c -I . -framework IOKit)
+    (c_library_flags :standard -framework IOKit)))
+  (headers
+   (include "IOKit/ps/IOPowerSources.h"))
+  (type_description
+   (instance Type)
+   (functor Type_description))
+  (function_description
+   (concurrency sequential)
+   (instance Functions)
+   (functor Function_description))
+  (generated_types Types_generated)
+  (generated_entry_point C)))
